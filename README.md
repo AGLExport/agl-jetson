@@ -1,4 +1,4 @@
-NVIDIA Jetson TK1 AGL Distro Scripts
+NVIDIA Jetson TK1/TX1 AGL Distro Scripts
 ====================================================================
 These scripts aim at building an AGL distro on Jetson TK1.
 
@@ -46,6 +46,33 @@ cp -R agl-jetson/meta-agl/templates/machine/jetson-tk1 meta-agl/templates/machin
 source meta-agl/scripts/aglsetup.sh -m jetson-tk1 agl-demo agl-appfw-smack
 
 bitbake agl-demo-platform
+
+
+Build AGL Distro (pre DD)
+====================================================================
+cd /path/to/work
+
+git clone https://github.com/watatuki/agl-jetson.git
+
+git clone https://github.com/watatuki/meta-jetson.git
+
+repo init -u https://gerrit.automotivelinux.org/gerrit/AGL/AGL-repo
+
+repo sync
+
+cp -R agl-jetson/meta-agl/templates/machine/jetson* meta-agl/templates/machine/
+
+source meta-agl/scripts/aglsetup.sh -m jetson-tk1 agl-demo agl-appfw-smack
+
+or
+
+source meta-agl/scripts/aglsetup.sh -m jetson-tx1 agl-demo agl-appfw-smack
+
+
+bitbake agl-demo-platform
+
+
+"master" is unstable. If you find a problem, please write an Issue.
 
 
 Install to SD card
