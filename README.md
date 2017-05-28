@@ -33,9 +33,9 @@ Build AGL Distro (chinook)
 ====================================================================
 cd /path/to/work
 
-git clone https://github.com/watatuki/agl-jetson.git -b chinook
+git clone https://github.com/AGLExport/agl-jetson.git -b chinook
 
-git clone https://github.com/watatuki/meta-jetson.git -b chinook
+git clone https://github.com/AGLExport/meta-jetson.git -b chinook
 
 repo init -b chinook -u https://gerrit.automotivelinux.org/gerrit/AGL/AGL-repo
 
@@ -52,9 +52,9 @@ Build AGL Distro (pre DD)
 ====================================================================
 cd /path/to/work
 
-git clone https://github.com/watatuki/agl-jetson.git
+git clone https://github.com/AGLExport/agl-jetson.git
 
-git clone https://github.com/watatuki/meta-jetson.git
+git clone https://github.com/AGLExport/meta-jetson.git
 
 repo init -u https://gerrit.automotivelinux.org/gerrit/AGL/AGL-repo
 
