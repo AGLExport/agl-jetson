@@ -77,7 +77,8 @@ bitbake agl-demo-platform
 
 Install to SD card
 ====================================================================
-SD card will assume that it is "/dev/sdx1".
+SD card will assume that it is "/dev/sdx1"  
+Verify that tar version is 1.28 or newer: this is required to create extended attributes correctly on the SD-card, and in particular SMACK labels used to enforce security.
 
 sudo umount /dev/sdx1
 
@@ -89,19 +90,15 @@ sudo mount /dev/sdb1 /mnt/sdcard
 
 cd /mnt/sdcard
 
-sudo tar xvjf /path/to/work/agl-k1/tmp/deploy/images/jetson-tk1-upstream/agl-demo-platform-jetson-tk1-upstream.tar.bz2
+sudo /path/to/work/build/tmp/sysroots/x86_64-linux/usr/bin/tar-native/tar --extract \ 
+--numeric-owner --preserve-permissions --preserve-order --totals --xattrs-include='*' \  
+--file=/path/to/work/build/tmp/deploy/images/jetson-tk1-upstream/agl-demo-platform-jetson-tk1-upstream.tar.bz2
 
 sudo sync
 
 
-AGL demo running Jetson TK1 board.
+AGL demo running Jetson TK1/TX1 board.
 ====================================================================
 Power ON
 
-login by root
-
-cd /usr/AGL/apps
-./installAllApps.sh
-
-reboot
 
