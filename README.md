@@ -48,7 +48,31 @@ source meta-agl/scripts/aglsetup.sh -m jetson-tk1 agl-demo agl-appfw-smack
 bitbake agl-demo-platform
 
 
-Build AGL Distro (pre DD)
+Build AGL Distro (dab)
+====================================================================
+cd /path/to/work
+
+git clone https://github.com/AGLExport/agl-jetson.git -b dab
+
+git clone https://github.com/AGLExport/meta-jetson.git -b dab
+
+repo init -b dab -u https://gerrit.automotivelinux.org/gerrit/AGL/AGL-repo
+
+repo sync
+
+cp -R agl-jetson/meta-agl/templates/machine/jetson* meta-agl/templates/machine/
+
+source meta-agl/scripts/aglsetup.sh -m jetson-tk1 agl-demo agl-appfw-smack
+
+or
+
+source meta-agl/scripts/aglsetup.sh -m jetson-tx1 agl-demo agl-appfw-smack
+
+
+bitbake agl-demo-platform
+
+
+Build AGL Distro (master ee rc)
 ====================================================================
 cd /path/to/work
 
@@ -62,11 +86,11 @@ repo sync
 
 cp -R agl-jetson/meta-agl/templates/machine/jetson* meta-agl/templates/machine/
 
-source meta-agl/scripts/aglsetup.sh -m jetson-tk1 agl-demo agl-appfw-smack
+source meta-agl/scripts/aglsetup.sh -m jetson-tk1 agl-demo agl-appfw-smack agl-hmi-framework
 
 or
 
-source meta-agl/scripts/aglsetup.sh -m jetson-tx1 agl-demo agl-appfw-smack
+source meta-agl/scripts/aglsetup.sh -m jetson-tx1 agl-demo agl-appfw-smack agl-hmi-framework
 
 
 bitbake agl-demo-platform
